@@ -9,6 +9,11 @@ public interface IUnitOfWork
 
 public interface IRepository<TAggregate, TId> : IUnitOfWork where TAggregate : IAggregateRoot<TId>
 {
+    string AggregateName { get; }
+
+    void Add(TAggregate aggregateRoot);
+    void Delete(TAggregate aggregateRoot);
+
     Task<TAggregate> GetByIdAsync(TId id, params Expression<Func<TAggregate, object>>[] includeProperties);
     Task<TAggregate> FirstOrDefaultAsync(
         Expression<Func<TAggregate, bool>> predicate,
@@ -22,13 +27,10 @@ public interface IRepository<TAggregate, TId> : IUnitOfWork where TAggregate : I
         params Expression<Func<TAggregate, object>>[] includeProperties);
     Task<PagedResponse<TAggregate>> ListAsync(PageFilter pageFilter,
         Expression<Func<TAggregate, bool>> predicate = null,
-        Func<IQueryable<TAggregate>, IOrderedQueryable<TAggregate>> orderBy = null,
         params Expression<Func<TAggregate, object>>[] includeProperties);
 
     Task<int> CountAsync(Expression<Func<TAggregate, bool>> predicate = null);
-    Task AddAsync(TAggregate aggregateRoot);
-    void Add(TAggregate aggregateRoot);
-    void Delete(TAggregate aggregateRoot);
+
 }
 
 public class PagedResponse<TData>

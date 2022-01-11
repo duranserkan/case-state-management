@@ -48,7 +48,7 @@ public abstract class Entity<TId> : Entity, IEntity<TId>
         return EqualityComparer<TId>.Default.GetHashCode(Id);
     }
 
-    public static bool operator ==(Entity<TId> left, Entity<TId> right)
+    public static bool operator ==(Entity<TId>? left, Entity<TId>? right)
     {
         return Equals(left, right);
     }
