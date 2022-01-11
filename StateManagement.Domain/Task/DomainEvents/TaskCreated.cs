@@ -1,4 +1,4 @@
-﻿using StateManagement.Contract.DomainEvents;
+﻿using StateManagement.Contract.Task.DomainEvents;
 using StateManagement.SharedKernel;
 
 namespace StateManagement.Domain.Task.DomainEvents;

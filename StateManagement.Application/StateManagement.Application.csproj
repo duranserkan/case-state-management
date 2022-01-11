@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\StateManagement.Contract\StateManagement.Contract.csproj" />
+    <ProjectReference Include="..\StateManagement.Domain\StateManagement.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
