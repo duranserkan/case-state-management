@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using StateManagement.SharedKernel;
 
-namespace StateManagement.Infrastructure.Repositories;
+namespace StateManagement.Infrastructure;
 
-public class DbContextBase : DbContext
+public class DbContextBase : Microsoft.EntityFrameworkCore.DbContext
 {
     public DbContextBase(DbContextOptions options) : base(options) { }
 
@@ -17,8 +17,8 @@ public class DbContextBase : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
-
         modelBuilder.Ignore<IDomainEvent>();
+        modelBuilder.ApplyConfigurationsFromAssembly(GetType().Assembly);
     }
 
     public override int SaveChanges(bool acceptAllChangesOnSuccess)
@@ -64,8 +64,8 @@ public class DbContextBase : DbContext
                 return entityEntry;
             }).ToArray();
     }
-    
-    private async Task PublishDomainEvents()
+
+    private async System.Threading.Tasks.Task PublishDomainEvents()
     {
         // todo: masstransit can publish domain events to registered transport such as rabbitmq
     }

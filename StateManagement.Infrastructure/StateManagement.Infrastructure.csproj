@@ -11,6 +11,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\StateManagement.Domain\StateManagement.Domain.csproj" />
 	  <ProjectReference Include="..\StateManagement.SharedKernel\StateManagement.SharedKernel.csproj" />
 	</ItemGroup>
 

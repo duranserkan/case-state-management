@@ -2,6 +2,6 @@
 
 namespace StateManagement.Domain.Flow;
 
-public interface FlowRepository : IRepository<FlowAggregate, long>
+public interface IFlowRepository : IRepository<FlowAggregate, long>
 {
 }
