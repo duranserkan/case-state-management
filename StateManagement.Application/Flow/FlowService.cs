@@ -30,7 +30,7 @@ public class FlowService : IFlowService
 
     public async Task<FlowModel> CreateFlowAsync(PostFlowRequest request)
     {
-        var flowAggregate = new FlowAggregate(request.Name);
+        var flowAggregate = new FlowAggregate(request.Name, request.FlowStates);
 
         _flowRepository.Add(flowAggregate);
 

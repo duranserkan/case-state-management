@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using StateManagement.Contract.Flow.Models;
 using StateManagement.Domain.Flow.DomainEvents;
 using StateManagement.SharedKernel;
 
@@ -8,10 +9,13 @@ public class FlowAggregate : AggregateRoot<long>
 {
     private FlowAggregate() { }
 
-    public FlowAggregate(string flowName, List<StateEntity> states)
+    public FlowAggregate(string flowName, List<FlowStateModel> stateModels)
     {
         FlowName = flowName;
 
+        var states = stateModels
+            .Select(m => new StateEntity(m.Name, m.Order, m.FlowId))
+            .ToList();
         AddStates(states);
         Events.Add(new FlowCreated(EntityId));
     }
