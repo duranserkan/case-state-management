@@ -3,11 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DockerCompose", "DockerCompose", "{29A3FC6C-2BEE-4DE3-9FAD-1347E9D73B2B}"
-	ProjectSection(SolutionItems) = preProject
-		docker-compose.yml = docker-compose.yml
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{F178A7FC-C99E-4CBC-B2A5-60BC07BE79D9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{A759FDD6-12C0-4AA8-B06D-8FEDCB14D98C}"
@@ -28,10 +23,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StateManagement.Api", "Stat
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{3EC08CC5-F6E8-4152-9C22-C2485EC87E91}"
 	ProjectSection(SolutionItems) = preProject
-		.dockerignore = .dockerignore
 		..\.gitignore = ..\.gitignore
 		..\README.md = ..\README.md
 	EndProjectSection
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{AE57F06C-C849-4422-A2EA-D8336D0C5AD1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,6 +63,10 @@ Global
 		{929430D6-0DDA-4F2E-A3DB-1CBB2D71FF18}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{929430D6-0DDA-4F2E-A3DB-1CBB2D71FF18}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{929430D6-0DDA-4F2E-A3DB-1CBB2D71FF18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE57F06C-C849-4422-A2EA-D8336D0C5AD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE57F06C-C849-4422-A2EA-D8336D0C5AD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE57F06C-C849-4422-A2EA-D8336D0C5AD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE57F06C-C849-4422-A2EA-D8336D0C5AD1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

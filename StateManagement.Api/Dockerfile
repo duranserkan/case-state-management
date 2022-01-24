@@ -7,6 +7,11 @@ EXPOSE 80
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY ["StateManagement.Api/StateManagement.Api.csproj", "StateManagement.Api/"]
+COPY ["StateManagement.Application/StateManagement.Application.csproj", "StateManagement.Application/"]
+COPY ["StateManagement.Contract/StateManagement.Contract.csproj", "StateManagement.Contract/"]
+COPY ["StateManagement.SharedKernel/StateManagement.SharedKernel.csproj", "StateManagement.SharedKernel/"]
+COPY ["StateManagement.Domain/StateManagement.Domain.csproj", "StateManagement.Domain/"]
+COPY ["StateManagement.Infrastructure/StateManagement.Infrastructure.csproj", "StateManagement.Infrastructure/"]
 RUN dotnet restore "StateManagement.Api/StateManagement.Api.csproj"
 COPY . .
 WORKDIR "/src/StateManagement.Api"
