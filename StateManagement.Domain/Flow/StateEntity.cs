@@ -7,14 +7,16 @@ public class StateEntity : Entity<long>
 {
     private StateEntity() { }
 
-    public StateEntity(string name)
+    public StateEntity(string name, byte order, long flowId)
     {
         Name = name;
+        Order = order;
+        FlowId = flowId;
     }
 
-    public long FlowId { get; private set; }
     public string Name { get; private set; }
     public byte Order { get; set; }
+    public long FlowId { get; private set; }
 
     public List<long> TaskIds { get; set; }
 
