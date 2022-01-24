@@ -19,7 +19,8 @@ public class FlowAggregate : AggregateRoot<long>
     public string FlowName { get; set; }
 
     public List<StateEntity> States { get; private set; } = new();
-    
+
+    //Todo:write unit tests
     public void AssignTaskToState(long stateId, long taskId)
     {
         //Todo: validate task transitions etc
@@ -37,13 +38,20 @@ public class FlowAggregate : AggregateRoot<long>
         state.TaskIds.Add(taskId);
     }
 
+    //Todo:write unit tests
     public void ChangeStateOrder(Dictionary<long, byte> stateOrders)
     {
         if (stateOrders.Count != States.Count) throw new ValidationException();
 
-        //validate order size cant be bigger than state count
-        var newOrderSize = stateOrders.Select(x => x.Value).Distinct().Count();
-        if (States.Count != newOrderSize) throw new ValidationException();
+        //duplicate order validation
+        var newOrderCount = stateOrders.Select(x => x.Value).Distinct().Count();
+        if (States.Count != newOrderCount) throw new ValidationException();
+
+        var minOrder = stateOrders.Select(x => x.Value).Min();
+        if (minOrder != 1) throw new ValidationException();
+
+        var maxOrder = stateOrders.Select(x => x.Value).Max();
+        if (maxOrder != States.Count) throw new ValidationException();
 
         foreach (var state in States)
         {
